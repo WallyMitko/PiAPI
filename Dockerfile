@@ -22,4 +22,5 @@ RUN dotnet publish "./SimpleAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY pi.txt pi.txt
 ENTRYPOINT ["dotnet", "SimpleAPI.dll"]
